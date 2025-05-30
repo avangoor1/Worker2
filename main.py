@@ -16,7 +16,7 @@ def blockTime(date, timevalue):
     options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
     options.add_argument("--incognito")
     options.add_argument("window-size=1200x600")
-    #options.add_argument('--headless')
+    options.add_argument('--headless')
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')  # Optional but often needed
 
@@ -66,16 +66,6 @@ def blockTime(date, timevalue):
 
     time.sleep(2)
 
-    wait = WebDriverWait(driver, 10)  # Wait up to 10 seconds
-    court_link = wait.until(EC.element_to_be_clickable((By.ID, "court_chosen")))
-    court_link.click()
-
-    wait = WebDriverWait(driver, 10)
-    court_link = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[contains(text(), 'Badminton - Badminton 4')]")))
-    court_link.click()
-
-    time.sleep(2)
-
     # Locate the input field by ID
     date_input = driver.find_element(By.ID, "date")
 
@@ -115,4 +105,4 @@ def blockTime(date, timevalue):
 
 
 if __name__ == "__main__":
-    blockTime("06/06/2025", "5:00pm")
+    blockTime("06/09/2025", "5:00pm")
